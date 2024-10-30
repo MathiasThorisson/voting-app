@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Code Protected Voting</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+    #qr-code {
+      margin: 20px auto; /* Centering */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #message {
+      font-size: 18px;
+      color: #ff0000;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>QR Code Protected Voting</h1>
+
+  <!-- QR Code Section -->
+  <div id="qr-code"></div>
+  <p>Scan the QR code to unlock voting options.</p>
+
+  <div id="message">Please scan the QR code above to unlock voting.</div>
+
+  <!-- Include QRCode.js library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <script>
+    window.onload = function() {
+      // Generate a unique URL for the voting page
+      const votingURL = window.location.origin + '/vote.html'; // Adjust the path as needed
+
+      // QR Code generation using QRCode.js
+      new QRCode(document.getElementById("qr-code"), {
+        text: votingURL,
+        width: 200,
+        height: 200
+      });
+    };
+  </script>
+</body>
+</html>
