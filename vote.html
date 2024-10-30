@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voting Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+    .vote-btn {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    #results {
+      margin-top: 20px;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Voting Page</h1>
+
+  <!-- Voting Buttons Section -->
+  <div id="voting-section">
+    <button class="vote-btn" id="btnA" onclick="submitVote('A')">Vote A</button>
+    <button class="vote-btn" id="btnB" onclick="submitVote('B')">Vote B</button>
+  </div>
+
+  <!-- Voting Results -->
+  <div id="results">
+    <p>A: <span id="countA">0</span></p>
+    <p>B: <span id="countB">0</span></p>
+  </div>
+
+  <script>
+    // Voting counters
+    let votes = { A: 0, B: 0 };
+
+    // Function to handle voting
+    function submitVote(option) {
+      if (option === 'A' || option === 'B') {
+        votes[option]++;
+        updateResults();
+      }
+    }
+
+    // Function to update results
+    function updateResults() {
+      document.getElementById('countA').textContent = votes.A;
+      document.getElementById('countB').textContent = votes.B;
+    }
+  </script>
+</body>
+</html>
